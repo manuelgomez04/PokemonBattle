@@ -1,0 +1,31 @@
+<div class="card mt-4" style="width: 18rem;">
+    <img [src]="pokemon.sprites.front_default" class="card-img-top" [alt]="pokemon.name">
+    <div class="card-body">
+        <h5 class="card-title">{{pokemon.name}}</h5>
+        <p class="card-text">
+            Height: {{pokemon.height}}<br>
+            Weight: {{pokemon.weight}}
+        </p>
+        <p>
+            Life: {{life}} / 100
+        </p>
+        <ngb-progressbar class="mb-3" [type]="getProgressBarColor()" [value]="life" [striped]="true"
+            [animated]="true"><i>{{ life }}%</i></ngb-progressbar>
+
+        @if (isTurn) {
+        <button (click)="attack()" class="btn btn-primary">Attack</button>
+        } @else if (!isTurn) {
+        <button [disabled]="true" class="btn btn-primary">Waiting for the oponent</button>
+
+        }
+
+        <!-- @else() {
+        <button [disabled]="true" class="btn btn-primary">Waiting for the oponent</button>
+  
+      } -->
+
+        <div class="py-2">
+            <button class="btn btn-danger"  [disabled]="!isTurn" (click)="cambiarPokemons()">Cambiar Pokemon</button>
+        </div>
+    </div>
+</div>

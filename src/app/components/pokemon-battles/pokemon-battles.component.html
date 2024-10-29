@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <app-pokemon [pokemonId]="2" [life]="lifePokemon1" (onAttackDone)="handleAttack($event, 'pokemon2')"
+        [isTurn]="pokemonTurn === 1" (cambiarPokemon)="handlePokemonChange()">
+      </app-pokemon>
+    </div>
+    <div class="col-md-6">
+      <app-pokemon [pokemonId]="100" [life]="lifePokemon2" (onAttackDone)="handleAttack($event, 'pokemon1')"
+        [isTurn]="pokemonTurn === 2" (cambiarPokemon)="handlePokemonChange()">
+      </app-pokemon>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col text-center">
+      <button class="btn btn-primary btn-lg" (click)="resetBattle()">
+        <strong>Resetear Batalla</strong>
+      </button>
+    </div>
+  </div>
+</div>
