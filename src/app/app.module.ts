@@ -8,12 +8,14 @@ import { provideHttpClient } from '@angular/common/http';
 import { PokemonService } from './services/pokemon.service';
 import { PokemonComponent } from './components/pokemon/pokemon.component';
 import { PokemonBattlesComponent } from './components/pokemon-battles/pokemon-battles.component';
+import { ImagePipe } from './pipes/image.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     PokemonComponent,
-    PokemonBattlesComponent
+    PokemonBattlesComponent,
+    ImagePipe
   ],
   imports: [
     BrowserModule,

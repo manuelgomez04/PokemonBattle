@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { PokemonResponse } from '../../models/pokemon.interface';
 import { PokemonService } from '../../services/pokemon.service';
+import { ImagePipe } from '../../pipes/image.pipe';
 
 @Component({
   selector: 'app-pokemon',
@@ -14,10 +15,12 @@ export class PokemonComponent {
   @Input() isTurn: boolean = false;
   @Output() onAttackDone = new EventEmitter<number>();
   @Output() cambiarPokemon = new EventEmitter<void>();
-
+  urlPokemon: string = '';
 
   newPokemonId!: number
-  constructor(private pokemonService: PokemonService) { }
+  constructor(private pokemonService: PokemonService,
+    private imagePipe: ImagePipe
+  ) { }
 
   ngOnInit(): void {
     if (this.pokemonId) {
@@ -25,6 +28,8 @@ export class PokemonComponent {
         this.pokemon = pokemon;
       });
     }
+
+
   }
 
   getProgressBarColor(): string {
